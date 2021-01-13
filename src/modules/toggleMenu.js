@@ -11,7 +11,6 @@ const toggleMenu = () => {
     });
 
     closeMenu.addEventListener('click', () => menu.classList.remove('show-menu'));
-    
 };
 
 export default toggleMenu;
