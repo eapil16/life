@@ -40,6 +40,7 @@ const sendForm = () => {
     };    
 
     maskPhone('feedback__input-input');
+    maskPhone('feedback-block__form-input_phone');
 
 };
 
