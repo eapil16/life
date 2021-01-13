@@ -2,7 +2,8 @@
 const smoothScrolling = () => {
     const body = document.querySelector('body'),    
         menu = document.querySelector('.popup-dialog-menu'),
-        windowList = document.querySelector('.popup-repair-types');
+        windowList = document.querySelector('.popup-repair-types'),
+        popupPrivacy = document.querySelector('.popup-privacy');
       
     const smoothscroll = (target) => {
         document.querySelector(target).scrollIntoView({
@@ -27,9 +28,15 @@ const smoothScrolling = () => {
             windowList.classList.add('block-visibility');
         }     
         
+        if (event.target.closest('.link-privacy')) {
+            popupPrivacy.classList.add('block-visibility');
+        }
+
         if (event.target.closest('.close')) {
             windowList.classList.remove('block-visibility');
+            popupPrivacy.classList.remove('block-visibility');
         }
+  
     });
 
 };
