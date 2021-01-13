@@ -1,7 +1,17 @@
+'use strict';
 const toggleMenu = () => {
-    console.log('1');
-    console.log('5');
-    console.log('6');
+    const menu = document.querySelector('.popup-dialog-menu'),
+        menuBtn = document.querySelector('.menu'),
+        closeMenu = document.querySelector('.close-menu');
+    
+    menuBtn.addEventListener('click', (event) => {
+        if (event.target.closest('.menu__title') || event.target.closest('.menu__icon')) {
+            menu.classList.add('show-menu');
+        }      
+    });
+
+    closeMenu.addEventListener('click', () => menu.classList.remove('show-menu'));
+    
 };
 
 export default toggleMenu;

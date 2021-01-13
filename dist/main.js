@@ -1,1 +1,1 @@
-(()=>{"use strict";console.log("12")})();
+(()=>{"use strict";var e,t,n;e=document.querySelector(".popup-dialog-menu"),t=document.querySelector(".menu"),n=document.querySelector(".close-menu"),t.addEventListener("click",(function(t){(t.target.closest(".menu__title")||t.target.closest(".menu__icon"))&&e.classList.add("show-menu")})),n.addEventListener("click",(function(){return e.classList.remove("show-menu")}))})();
