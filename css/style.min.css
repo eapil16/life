@@ -9,4 +9,6 @@
 .show-phone a {
     opacity:1;
 }
-
+.block-visibility {
+    visibility: initial;
+}
