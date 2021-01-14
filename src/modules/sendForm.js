@@ -1,6 +1,97 @@
 'use strict';
 const sendForm = () => {
 
+    const popup = document.querySelector('.popup');
+    const errorMessage = 'Что-то пошло не так...',
+        loadMessage ='Загрузка...',
+        successMessage ='Спасибо! Мы скоро с вами свяжемся!';
+    const statusMessage = document.createElement('div');
+        statusMessage.style.cssText = 'font-size: 2rem;';
+
+    const preload = document.createElement('div');
+        preload.classList.add('preloader');
+        preload.innerHTML = '<div class="preloader__row">' +
+            '<div class="preloader__item"></div>' +
+            '<div class="preloader__item"></div>' +
+            '</div>';
+
+    const postData = (body) => {
+        return fetch('./server.php' , {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                },
+            body: JSON.stringify(body)
+        });
+    };
+
+    const sendData = (form) => {
+        event.preventDefault();
+        form.appendChild(statusMessage);
+        let flag = true;
+
+        form.appendChild(preload);
+        statusMessage.textContent = '';
+        const formData = new FormData(form);
+        let body = {};
+        formData.forEach((val, key) => {
+            if (val.trim() !== '') {
+                body[key] = val;
+            } else {
+                flag = false;
+            }
+        });
+        if (flag) {
+            postData(body)
+                .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error('Error network not 200');
+                    }
+                    preload.remove();
+                    statusMessage.textContent = successMessage;
+                    form.reset();
+                    setTimeout(function(){
+                        statusMessage.remove();
+                    },3000);
+                }, (error) => {
+                    statusMessage.textContent = errorMessage;
+                    console.error(error);
+                })
+                .catch((error) => {
+                    statusMessage.textContent = "Ошибка при отправке";
+                        console.error(error);
+                });
+
+        } else {
+            preload.remove();
+            statusMessage.textContent = 'Заполните все поля формы';
+        }          
+    };
+
+    document.body.addEventListener('submit', (event)=> {
+        const target = event.target;
+        console.log('target: ', 1);
+        sendData(target);
+    });
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
         const elems = document.querySelectorAll(`.${selector}`);
         

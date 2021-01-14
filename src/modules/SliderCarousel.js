@@ -40,7 +40,6 @@ class SliderCarousel {
         if (this.responsive) {
             this.responseInit();
         }  
-        console.log('pesp' , this.responsive);
     }
 
     addGloClass() {

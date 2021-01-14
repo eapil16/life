@@ -1,9 +1,7 @@
 'use strict';
 const tooltip = () => {
 
-    const selector = 'formula-item';
-    console.log('selector: ', selector);
-    
+   
     const parents = document.getElementById('formula'),
         elements = parents.querySelectorAll('.formula-item');
     // console.log('element: ', elements);
@@ -17,11 +15,9 @@ const tooltip = () => {
             console.log('target: ', target);
 
             if(target.closest('tooltip-active')) {
-                target.classList.remove('tooltip-active');
-            } else {
-                target.classList.add('tooltip-active');
-            }
-            
+                return;
+            } 
+            target.classList.add('tooltip-active');
             // let tooltipHtml = target.querySelector('.formula-item-popup');
             
             
