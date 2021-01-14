@@ -20,6 +20,7 @@ const accordion = () => {
             addClassActive(event.target.closest('li h2'));
         }   
     });
+    
 };
 
 export default accordion;

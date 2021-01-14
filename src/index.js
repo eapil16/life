@@ -20,18 +20,14 @@ const carousel = new sliderCarousel({
     wrap: '.partners-slider',
     prev: '#partners-arrow_left',
     next: '#partners-arrow_right',
-    slidesToShow: 4,
+    slidesToShow: 3,
     infinity: true,
     responsive : [{
         breakpoint: 1200,
-        slidesToShow:3
-    },
-    {
-        breakpoint: 768,
         slidesToShow:2
     },
     {
-        breakpoint: 576,
+        breakpoint: 768,
         slidesToShow:1
     }]
 });

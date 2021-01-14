@@ -31,7 +31,6 @@ class SliderCarousel {
     init(){
         this.addGloClass();
         this.addStyle();
-        this.getDots();
         if (this.prev && this.next) {
             this.controlSlider();
         } else {
@@ -97,88 +96,13 @@ class SliderCarousel {
     }
 
     nextSlider(){
-
-        
-        
-        
         if (this.options.infinity || this.options.position < this.options.maxPosition) {
             ++this.options.position;
-            // let delElem;
-            // delElem.remove();
             if (this.options.position > this.options.maxPosition) {
-                // this.options.position = 0;
-
-                const index = (this.options.position - this.options.maxPosition) - 1 ;
-                console.log('index: ', index);
-                const lastSlide = this.slides.length -1;
-                console.log('this.slides: ', this.slides);
-                console.log('lengthSlides: ', lastSlide);
-
-                // const sliderClone = this.slides[index - 1].cloneNode(true);
-                // const delElem = this.slides[index - 1];
-                // console.log('delElem: ', delElem);
-                // sliderClone.classList.add('slider-clone');
-                
-                // this.wrap.appendChild(sliderClone); // вставляем скопированный элемент
-                
-                this.slides[index].before(this.slides[lastSlide]);
-                
-                
+                this.options.position = 0;
             }
-            // const delElem = this.slides[this.options.position - this.options.maxPosition - 1];
-            // delElem.remove();
             this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
-            
         }
-        // this.slides[0].remove();
-    }
-
-    getDots() {
-        const dotsUl = document.createElement('ul');
-        dotsUl.classList.add('slider-dots');
-        for (let i = 0; i < this.slides.length; i++) {
-            const dotBlock = document.createElement('li');
-            dotBlock.classList.add('dot');
-            if (i === 0) {
-                dotBlock.classList.add('dot-active');
-            }            
-            dotsUl.append(dotBlock);
-        } 
-        this.main.append(dotsUl);   
-        const style = document.createElement('style');
-        style.textContent = `
-            .slider-dots {
-                position: absolute;
-                bottom: 0px;
-                width: 100%;
-                margin: 0 auto;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                justify-content: center;
-                z-index: 5;
-            }
-            .slider-dots .dot {
-                cursor: pointer;
-                height: 16px;
-                width: 16px;
-                margin: 0 10px;
-                border-radius: 50%;
-                border: solid #f58c22;
-                display: inline-block;
-                -webkit-transition: background-color,-webkit-transform .4s;
-                transition: background-color,transform .4s,-webkit-transform .4s;
-                background: transparent;
-            }
-            .slider-dots .dot-active {
-                background-color: #f58c22;
-                -webkit-transform: scale(1.2);
-                transform: scale(1.2);
-            }
-        `;
-        document.head.appendChild(style);  
     }
 
     addArrow(){

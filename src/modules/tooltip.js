@@ -1,6 +1,11 @@
 'use strict';
-
 const tooltip = () => {
+
+    const parents = document.getElementById('formula'),
+        elements = parents.querySelectorAll('.formula-item');
+    // console.log('element: ', elements);
+
+  
     document.onmouseover = function(event) {
         const  target = event.target.closest('.formula-item');
         
@@ -13,10 +18,8 @@ const tooltip = () => {
                 target.classList.add('to-bottom');
             } 
         }
+
     };
-
-    
-
 };
 
 export default tooltip;
