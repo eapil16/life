@@ -7,6 +7,7 @@ import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
 import sliderCarousel from './modules/SliderCarousel'; 
 import tooltip from './modules/tooltip';
+import tabsWorking from './modules/tabsWorking';
 
 toggleMenu();
 togglePhone();
@@ -14,6 +15,7 @@ smoothScrolling();
 sendForm();
 accordion();
 tooltip();
+tabsWorking();
 
 const carousel = new sliderCarousel({
     main: '#partners .wrapper',
@@ -32,3 +34,5 @@ const carousel = new sliderCarousel({
     }]
 });
 carousel.init();
+
+

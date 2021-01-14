@@ -31,3 +31,37 @@ li.tabs-active .msg {
 .formula-item.to-bottom {
     z-index:5;
 }
+.scheme-slider__slide {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 400ms ease;
+    right: 0;
+}
+.active-tab {
+    opacity: 1;
+    transition:all 400ms ease;
+}
+#scheme .glo-slider__wrap {
+    padding: 0 !important;
+}
+
+@media only screen and (max-width: 1134px) {
+    #scheme .glo-slider__wrap .button_o svg {
+        display:none;
+    }
+    #scheme .glo-slider__item {
+        margin: 0 5px !important;
+        border: 2px solid #e4e1df;
+        border-radius: 20px;
+    }
+    #scheme .glo-slider__item.active {
+        border-color:#ffb015;
+    }
+    .nav-list {
+        min-width: 100%;
+    }
+     
+}

@@ -1,22 +1,34 @@
 'use strict';
 const tooltip = () => {
 
+    const selector = 'formula-item';
+    console.log('selector: ', selector);
+    
     const parents = document.getElementById('formula'),
         elements = parents.querySelectorAll('.formula-item');
     // console.log('element: ', elements);
 
   
-    document.onmouseover = function(event) {
-        const  target = event.target.closest('.formula-item');
+    parents.onmouseover = function(event) {
+         const  target = event.target.closest('.formula-item');
+         
         
         if (target) {
-            let tooltipHtml = target.querySelector('.formula-item-popup');
+            console.log('target: ', target);
+
+            if(target.closest('tooltip-active')) {
+                target.classList.remove('tooltip-active');
+            } else {
+                target.classList.add('tooltip-active');
+            }
             
-            tooltipHtml.classList.add('tooltip-active');
-            const coords = tooltipHtml.getBoundingClientRect();
-            if (coords.top < 0) { 
-                target.classList.add('to-bottom');
-            } 
+            // let tooltipHtml = target.querySelector('.formula-item-popup');
+            
+            
+            // const coords = tooltipHtml.getBoundingClientRect();
+            // if (coords.top < 0) { 
+            //     target.classList.add('to-bottom');
+            // } 
         }
 
     };

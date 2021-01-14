@@ -39,7 +39,8 @@ class SliderCarousel {
         }
         if (this.responsive) {
             this.responseInit();
-        }        
+        }  
+        console.log('pesp' , this.responsive);
     }
 
     addGloClass() {
@@ -131,8 +132,8 @@ class SliderCarousel {
             .glo-slider__next:hover,
             .glo-slider__prev:focus,
             .glo-slider__next:focus {
-                background: transparent;
-                outline:none;
+                background: transparent !important;
+                outline:none !important;
             }
         `;
         document.head.appendChild(style);
