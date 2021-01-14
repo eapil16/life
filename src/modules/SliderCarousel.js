@@ -97,26 +97,40 @@ class SliderCarousel {
     }
 
     nextSlider(){
-        const newCollecion = this.slides;
-        console.log('newCollecion: ', newCollecion);
+
+        
+        
+        
         if (this.options.infinity || this.options.position < this.options.maxPosition) {
             ++this.options.position;
+            // let delElem;
+            // delElem.remove();
             if (this.options.position > this.options.maxPosition) {
                 // this.options.position = 0;
-                const newSlide = this.slides[this.options.position - this.options.maxPosition];
-                console.log('this.options.position: ', this.options.position);
-                // newCollecion.push(this.slides[this.options.position - this.options.maxPosition]);
-                console.log('this.options.maxPosition ', this.options.maxPosition);
-                console.log('this.slides: ', this.slides[2]);
-                // this.slides[this.options.position].before(this.slides[this.options.position - this.options.maxPosition]);
 
-                // this.slide[this.options.position] = 
+                const index = (this.options.position - this.options.maxPosition) - 1 ;
+                console.log('index: ', index);
+                const lastSlide = this.slides.length -1;
+                console.log('this.slides: ', this.slides);
+                console.log('lengthSlides: ', lastSlide);
 
-
-
+                // const sliderClone = this.slides[index - 1].cloneNode(true);
+                // const delElem = this.slides[index - 1];
+                // console.log('delElem: ', delElem);
+                // sliderClone.classList.add('slider-clone');
+                
+                // this.wrap.appendChild(sliderClone); // вставляем скопированный элемент
+                
+                this.slides[index].before(this.slides[lastSlide]);
+                
+                
             }
+            // const delElem = this.slides[this.options.position - this.options.maxPosition - 1];
+            // delElem.remove();
             this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
+            
         }
+        // this.slides[0].remove();
     }
 
     getDots() {

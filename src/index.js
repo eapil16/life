@@ -6,19 +6,21 @@ import smoothScrolling from './modules/smoothScrolling';
 import sendForm from './modules/sendForm';
 import accordion from './modules/accordion';
 import sliderCarousel from './modules/SliderCarousel'; 
+import tooltip from './modules/tooltip';
 
 toggleMenu();
 togglePhone();
 smoothScrolling();
 sendForm();
 accordion();
+tooltip();
 
 const carousel = new sliderCarousel({
     main: '#partners .wrapper',
     wrap: '.partners-slider',
     prev: '#partners-arrow_left',
     next: '#partners-arrow_right',
-    slidesToShow: 3,
+    slidesToShow: 4,
     infinity: true,
     responsive : [{
         breakpoint: 1200,

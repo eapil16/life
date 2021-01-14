@@ -17,3 +17,18 @@ li.tabs-active .msg {
     opacity: 1;
     transform: translate(0,0);
 }
+.tooltip-active {
+    visibility: initial;
+    /* transition:all 400ms ease; */
+    opacity:1;
+}
+.to-bottom .formula-item-popup {
+    top: calc(100% + 30px);
+    padding: 35px 40px 20px; 
+}
+/* .formula-item-popup {
+    padding: 20px 40px 35px;
+} */
+.to-bottom .formula-item-popup:before {
+    transform: rotate(180deg);
+}
