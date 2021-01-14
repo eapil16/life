@@ -1,12 +1,14 @@
 'use strict';
 const sendForm = () => {
 
-    const popup = document.querySelector('.popup');
     const errorMessage = 'Что-то пошло не так...',
-        loadMessage ='Загрузка...',
-        successMessage ='Спасибо! Мы скоро с вами свяжемся!';
+        loadMessage = document.querySelector('.popup-thank '),
+        close =  document.querySelector('.close-thank');
+
     const statusMessage = document.createElement('div');
-        statusMessage.style.cssText = 'font-size: 2rem;';
+        statusMessage.style.cssText = `
+        font-size: 14px;
+        color: #ffb015;`;
 
     const preload = document.createElement('div');
         preload.classList.add('preloader');
@@ -48,10 +50,10 @@ const sendForm = () => {
                         throw new Error('Error network not 200');
                     }
                     preload.remove();
-                    statusMessage.textContent = successMessage;
+                   loadMessage.classList.add('block-visibility');
                     form.reset();
                     setTimeout(function(){
-                        statusMessage.remove();
+                        loadMessage.classList.remove('block-visibility');
                     },3000);
                 }, (error) => {
                     statusMessage.textContent = errorMessage;
@@ -70,12 +72,17 @@ const sendForm = () => {
 
     document.body.addEventListener('submit', (event)=> {
         const target = event.target;
-        console.log('target: ', 1);
-        sendData(target);
+        const checkedInputs = target.querySelector("input[type='checkbox']:checked");
+        if (checkedInputs){
+            sendData(target);
+        } else {
+            event.preventDefault();
+        }        
+    });  
+
+    close.addEventListener('click', (enevt) => {
+        loadMessage.classList.remove('block-visibility');
     });
-   
-    
-   
    
     const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
         const elems = document.querySelectorAll(`.${selector}`);
