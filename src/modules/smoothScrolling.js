@@ -7,6 +7,7 @@ const smoothScrolling = () => {
         popupnWide = document.querySelector('.popup-consultation');
       
     const smoothscroll = (target) => {
+        event.preventDefault();
         document.querySelector(target).scrollIntoView({
             behavior: 'smooth',
                 block: 'start'
@@ -14,8 +15,7 @@ const smoothScrolling = () => {
     };
 
     body.addEventListener('click', () => {
-        event.preventDefault();
-        const target = event.target.closest('body a');
+       const target = event.target.closest('body a');
         if (target) {
             const toTarget = target.getAttribute('href');
             if (toTarget && toTarget[0] === '#' && toTarget.length > 1) {

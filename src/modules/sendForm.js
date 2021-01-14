@@ -74,22 +74,7 @@ const sendForm = () => {
         sendData(target);
     });
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    
    
    
     const maskPhone = (selector, masked = '+7 (___) ___-__-__') => {
