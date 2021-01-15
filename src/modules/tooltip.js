@@ -9,9 +9,8 @@ const tooltip = () => {
         const target = event.target.closest('.formula-item');
          if (target) {
             target.classList.add('formula-item__active');
-            const value = target.querySelector('.formula-item__icon-inner-text').textContent;
-            const qweerty = target.querySelector('.formula-item-popup');
-            toolId = qweerty.className;            
+            const item = target.querySelector('.formula-item-popup');
+            toolId = item.className;            
             let lastChar = toolId.substr(toolId.length - 2); 
             const block = parent.querySelector('.wrapper_small');
             const tools = block.querySelectorAll('.formula-item-popup');
@@ -32,11 +31,10 @@ const tooltip = () => {
 
     parent.addEventListener('mouseout', function(event){
         let toolId = 0;
-       const target = event.target.closest('.formula-item');
+        const target = event.target.closest('.formula-item');
         if (target) {
-           const value = target.querySelector('.formula-item__icon-inner-text').textContent;
-           const qweerty = target.querySelector('.formula-item-popup');
-           toolId = qweerty.className;            
+           const item = target.querySelector('.formula-item-popup');
+           toolId = item.className;            
            let lastChar = toolId.substr(toolId.length - 2); 
            const block = parent.querySelector('.wrapper_small');
            const tools = block.querySelectorAll('.formula-item-popup');
@@ -54,9 +52,9 @@ const tooltip = () => {
                }
            });
        }        
-   });
+    });
 
-   const showSlides =() => {
+    const showSlides =() => {
         const tooltipCarousel = new sliderCarousel({
             main: '.formula-slider-wrap',
             wrap: '.formula-slider',

@@ -5,9 +5,10 @@ const contract = () => {
     const selector = document.getElementById('transparency'),
         modal = document.querySelector('.popup-transparency'),
         close = modal.querySelector('.close'),
+        // mobileHide = modal.querySelector('.close tablet-hide desktop-hide'),
         content = modal.querySelector('.slider-counter-content__current'),
         total = modal.querySelector('.slider-counter-content__total');
-    
+        
     content.textContent = 1; 
        
     const contractSlider = () => {
@@ -67,7 +68,12 @@ const contract = () => {
         }
     });
 
-    close.addEventListener('click', (event) => { modal.classList.remove('block-visibility');}); 
+    modal.addEventListener('click', (event) => {
+        if (event.target.closest('.close')) {
+            modal.classList.remove('block-visibility');
+        }
+         
+    }); 
 
     const showSlides =() => {
         const contractTabs = new sliderCarousel({

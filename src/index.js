@@ -10,6 +10,7 @@ import sliderReviews from './modules/sliderReviews';
 import getDataBase from './modules/getDataBase';
 import viewsRepairs from './modules/viewsRepairs';
 import contract from './modules/contract';
+import problems from './modules/problems';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getDataBase();
     viewsRepairs();
     contract();
+    problems();
     
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',

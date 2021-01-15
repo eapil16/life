@@ -184,6 +184,23 @@ li.tabs-active .msg {
     padding: 0 !important;
     margin: 0 !important;
 }
+.problems-active {
+    visibility: initial;
+    opacity:1;
+}
+.to-bottom{
+    top: calc(100% + 30px) !important;
+    padding: 35px 40px 20px !important; 
+}
+.to-bottom:before {
+    transform: rotate(180deg) !important;
+}
+.problems-item.to-bottom {
+    z-index:5;
+}
+
+
+
 
 
 @media only screen and (max-width: 1134px) {
@@ -208,5 +225,22 @@ li.tabs-active .msg {
     }
     .formula-slider__slide {
         opacity: 1;
+    }
+    .problems-slider.glo-slider__wrap {
+        padding: 0 0 250px 0 !important;
+        margin: -220px 0 0 0 !important;
+    }
+    .problems-item.problems-slider__slide.active-item {
+        opacity: 1;
+    }
+    .problems-item.problems-slider__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+    }
+    .problems-slider {
+        position: relative;
     }
 }

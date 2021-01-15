@@ -22,8 +22,6 @@ const viewsRepairs = () => {
             elem[index].classList.remove(strClass);
         };
 
-        console.log('slide: ', slide);
-
         const nextSlide = (elem, index, strClass) => {
             elem[index].classList.add(strClass);
         };
