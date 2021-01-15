@@ -160,7 +160,7 @@ li.tabs-active .msg {
 }
 .repair-types-slider__slide {
     position: absolute;
-    opacity:0;
+    opacity:0; 
     transition: all 400ms ease;
 }
 .repair-types-slider__slide.active {
@@ -243,4 +243,32 @@ li.tabs-active .msg {
     .problems-slider {
         position: relative;
     }
+    .nav-list.nav-list-repair.glo-slider__wrap {
+        flex-wrap: nowrap;
+    }
+    .nav-list.nav-list-repair.glo-slider__wrap {
+        padding: 0 !important;
+    }
+
+    /* #repair-types .block-slider {
+        position: relative;
+        opacity: 0;
+    }
+    #repair-types .block-slider.active {
+        position: relative;
+        opacity: 1;
+    } */
+    
+    .repair-types-tab button {
+        border: 2px solid #f1efea;
+        border-radius: 20px;
+        margin: 0 10px !important;
+    } 
+    .repair-types-tab button.active {
+        border-color: #f58c21;
+    }
+    .repair-types-tab button svg {
+        display:none;
+    }
+    
 }

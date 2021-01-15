@@ -30,7 +30,7 @@ const tabsWorking = () => {
                     tabsText.forEach((element) => {
                         if (target.textContent.trim() === element.querySelector('.scheme-description-block__title').textContent.trim()) {
                             element.classList.add('visible-content-block');
-                         } else {
+                        } else {
                             element.classList.remove('visible-content-block');
                         }
                     });  

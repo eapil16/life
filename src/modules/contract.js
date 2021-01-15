@@ -4,8 +4,6 @@ import sliderCarousel from '../modules/SliderCarousel';
 const contract = () => {
     const selector = document.getElementById('transparency'),
         modal = document.querySelector('.popup-transparency'),
-        close = modal.querySelector('.close'),
-        // mobileHide = modal.querySelector('.close tablet-hide desktop-hide'),
         content = modal.querySelector('.slider-counter-content__current'),
         total = modal.querySelector('.slider-counter-content__total');
         
