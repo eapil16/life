@@ -1,37 +1,32 @@
 'use strict';
 const tooltip = () => {
 
-   
     const parent = document.getElementById('formula');
    
-        // elements = parent.querySelectorAll('.formula-item');
     parent.addEventListener('mouseover', function(event){
-		let toolId = 0;
-        const target = event.target;
-        if (target.classList.contains('formula-item')) {
+     	let toolId = 0;
+        const target = event.target.closest('.formula-item');
+         if (target) {
             const value = target.querySelector('.formula-item__icon-inner-text').textContent;
-            console.log('value: ', value);
             const qweerty = target.querySelector('.formula-item-popup');
-            toolId = qweerty.className;// если класс наш чилд, определяем его атрибут pos,чтоб точно такой же показать тултип
-            console.log('toolId: ', toolId);
-
-            var lastChar = toolId.substr(toolId.length - 2); // => "1"
-            console.log('lastChar: ', lastChar);
-        }
-                // // перебираем тултипы
-        const block = parent.querySelector('.wrapper_small');
-        const tools = block.querySelectorAll('.formula-item-popup');
-        console.log('tools: ', tools);
-		for (let i = 0; i < tools.length; i++){
-            let pos = tools[i].className.substr(toolId.length - 2);// смотрим у каждого атрибут pos
-            console.log('tools[i]: ', tools[i]);
-            if (pos !== lastChar && tools[i].style.display === "block")  {
-                tools[i].style.display='none';
-            }
-			if (pos === lastChar && tools[i].style.display === "none") {
-                tools[i].style.display='block';
-            } 
-		}
+            toolId = qweerty.className;            
+            let lastChar = toolId.substr(toolId.length - 2); 
+            const block = parent.querySelector('.wrapper_small');
+            const tools = block.querySelectorAll('.formula-item-popup');
+            tools.forEach((element) => {
+                if (element.className.substr(toolId.length - 2) === lastChar ) {
+                    element.classList.add('tooltip-active');
+                    // let tooltipHtml = target.querySelector('.formula-item-popup');
+                    const coords = element.getBoundingClientRect();
+                    if (coords.top < 0) { 
+                        element.classList.add('to-bottom');
+                    } 
+                } else {
+                    element.classList.remove('to-bottom');
+                    element.classList.remove('tooltip-active');
+                }
+            });
+        }           
 	});
 
 

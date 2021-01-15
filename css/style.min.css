@@ -21,15 +21,18 @@ li.tabs-active .msg {
     visibility: initial;
     opacity:1;
 }
-.to-bottom .formula-item-popup {
-    top: calc(100% + 30px);
-    padding: 35px 40px 20px; 
+.to-bottom{
+    top: calc(100% + 30px) !important;
+    padding: 35px 40px 20px !important; 
 }
-.to-bottom .formula-item-popup:before {
-    transform: rotate(180deg);
+.to-bottom:before {
+    transform: rotate(180deg) !important;
 }
 .formula-item.to-bottom {
     z-index:5;
+}
+.formula-item {
+    z-index: 1;
 }
 .scheme-slider__slide {
     position: absolute;
