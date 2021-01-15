@@ -157,3 +157,6 @@ li.tabs-active .msg {
 .popup-repair-types-nav__item.active {
     border-color: #f48922 !important;
 }
+.error-input {
+    border-bottom: 2px solid red !important;
+}

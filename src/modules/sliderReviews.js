@@ -1,7 +1,8 @@
 'use strict';
 const sliderReviews = () => {
     const slide = document.querySelectorAll('.reviews-slider__slide'),
-        slider = document.querySelector('.reviews-slider-wrap'),
+        // slider = document.querySelector('.reviews-slider-wrap'),
+        slider = document.getElementById('reviews'),
         dotsUl = document.querySelector('.slider-dots-reviews');
             
     let currentSlide = 0,

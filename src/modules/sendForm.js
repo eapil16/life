@@ -1,5 +1,6 @@
 'use strict';
 const sendForm = () => {
+    let count = 0;
 
     const errorMessage = 'Что-то пошло не так...',
         loadMessage = document.querySelector('.popup-thank '),
@@ -72,11 +73,14 @@ const sendForm = () => {
 
     document.body.addEventListener('submit', (event)=> {
         const target = event.target;
+        const input = target.querySelector('.feedback-block__form-input_name');
         const checkedInputs = target.querySelector("input[type='checkbox']:checked");
-        if (checkedInputs){
+        if (checkedInputs && count >= 2){
+            input.classList.remove('error-input');
             sendData(target);
         } else {
             event.preventDefault();
+            input.classList.add('error-input');
         }        
     });  
 
@@ -121,6 +125,18 @@ const sendForm = () => {
         }
         
     };    
+
+    const validName = (item) => {
+        item.value = item.value.replace(/[^а-я ]/gi, '');
+        count = item.value.length;
+    };
+    
+    document.body.addEventListener('input', (event)=> {
+        const targetName = event.target.closest('.feedback-block__form-input_name');
+        if (targetName) {
+            validName(targetName);
+        }
+    });
 
     maskPhone('feedback__input-input');
     maskPhone('feedback-block__form-input_phone');
