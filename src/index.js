@@ -6,6 +6,8 @@ import accordion from './modules/accordion';
 import sliderCarousel from './modules/SliderCarousel'; 
 import tooltip from './modules/tooltip';
 import tabsWorking from './modules/tabsWorking';
+import sliderReviews from './modules/sliderReviews';
+import getDataBase from './modules/getDataBase';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -16,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     accordion();
     tooltip();
     tabsWorking();
+    sliderReviews();
+    getDataBase();
     
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',
