@@ -16,7 +16,6 @@ const tooltip = () => {
             tools.forEach((element) => {
                 if (element.className.substr(toolId.length - 2) === lastChar ) {
                     element.classList.add('tooltip-active');
-                    // let tooltipHtml = target.querySelector('.formula-item-popup');
                     const coords = element.getBoundingClientRect();
                     if (coords.top < 0) { 
                         element.classList.add('to-bottom');
@@ -26,7 +25,7 @@ const tooltip = () => {
                     element.classList.remove('tooltip-active');
                 }
             });
-        }           
+        }        
 	});
 
 

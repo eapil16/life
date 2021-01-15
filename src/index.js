@@ -8,6 +8,7 @@ import tooltip from './modules/tooltip';
 import tabsWorking from './modules/tabsWorking';
 import sliderReviews from './modules/sliderReviews';
 import getDataBase from './modules/getDataBase';
+import viewsRepairs from './modules/viewsRepairs';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tabsWorking();
     sliderReviews();
     getDataBase();
+    viewsRepairs();
     
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',
