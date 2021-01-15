@@ -9,6 +9,7 @@ import tabsWorking from './modules/tabsWorking';
 import sliderReviews from './modules/sliderReviews';
 import getDataBase from './modules/getDataBase';
 import viewsRepairs from './modules/viewsRepairs';
+import contract from './modules/contract';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sliderReviews();
     getDataBase();
     viewsRepairs();
+    contract();
     
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',

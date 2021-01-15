@@ -185,3 +185,18 @@ li.tabs-active .msg {
     opacity:1;
     transition: all 400ms ease;
 }
+.popup-transparency-slider__slide {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: all 400ms ease;
+}
+.popup-transparency-slider__slide.slide-active {
+    opacity: 1;
+    transition: all 400ms ease;
+}
+@media (max-width: 1024px) {
+    .transparency-slider.row.glo-slider__wrap {
+        flex-wrap: nowrap !important;
+    }
+}

@@ -48,6 +48,9 @@ class SliderCarousel {
         for (const item of this.slides) {
            item.classList.add('glo-slider__item'); 
         }
+        if (this.slidesToShow === 1) {
+            this.main.classList.add('glo-slider__full');
+        } 
     }
     
     addStyle(){
@@ -70,14 +73,16 @@ class SliderCarousel {
             .glo-slider__item {
                 display:flex !important;
                 align-items: center !important;
-                flex:0 0 ${this.options.widthSlide}% !important;
                 margin: auto 0 !important;
                 justify-content: center;
+                flex:0 0 ${this.options.widthSlide}% !important;
                 max-width: 100% !important;
             }  
+            .glo-slider__full .glo-slider__item {
+                flex:0 0 100% !important;
+            }
         `;
         document.head.appendChild(style);
-        
     }
 
     controlSlider(){
