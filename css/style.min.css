@@ -50,24 +50,6 @@ li.tabs-active .msg {
 #scheme .glo-slider__wrap {
     padding: 0 !important;
 }
-
-@media only screen and (max-width: 1134px) {
-    #scheme .glo-slider__wrap .button_o svg {
-        display:none;
-    }
-    #scheme .glo-slider__item {
-        margin: 0 5px !important;
-        border: 2px solid #e4e1df;
-        border-radius: 20px;
-    }
-    #scheme .glo-slider__item.active {
-        border-color:#ffb015;
-    }
-    .nav-list {
-        min-width: 100%;
-    }
-     
-}
 .preloader {
     position: relative;
 }
@@ -195,8 +177,36 @@ li.tabs-active .msg {
     opacity: 1;
     transition: all 400ms ease;
 }
+.formula-item.formula-item__active {
+    z-index:10;
+}
+.formula-slider.glo-slider__wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+@media only screen and (max-width: 1134px) {
+    #scheme .glo-slider__wrap .button_o svg {
+        display:none;
+    }
+    #scheme .glo-slider__item {
+        margin: 0 5px !important;
+        border: 2px solid #e4e1df;
+        border-radius: 20px;
+    }
+    #scheme .glo-slider__item.active {
+        border-color:#ffb015;
+    }
+    .nav-list {
+        min-width: 100%;
+    }
+}
 @media (max-width: 1024px) {
     .transparency-slider.row.glo-slider__wrap {
         flex-wrap: nowrap !important;
+    }
+    .formula-slider__slide {
+        opacity: 1;
     }
 }

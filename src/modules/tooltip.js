@@ -1,4 +1,5 @@
 'use strict';
+import sliderCarousel from '../modules/SliderCarousel';
 const tooltip = () => {
 
     const parent = document.getElementById('formula');
@@ -7,6 +8,7 @@ const tooltip = () => {
      	let toolId = 0;
         const target = event.target.closest('.formula-item');
          if (target) {
+            target.classList.add('formula-item__active');
             const value = target.querySelector('.formula-item__icon-inner-text').textContent;
             const qweerty = target.querySelector('.formula-item-popup');
             toolId = qweerty.className;            
@@ -28,56 +30,49 @@ const tooltip = () => {
         }        
 	});
 
+    parent.addEventListener('mouseout', function(event){
+        let toolId = 0;
+       const target = event.target.closest('.formula-item');
+        if (target) {
+           const value = target.querySelector('.formula-item__icon-inner-text').textContent;
+           const qweerty = target.querySelector('.formula-item-popup');
+           toolId = qweerty.className;            
+           let lastChar = toolId.substr(toolId.length - 2); 
+           const block = parent.querySelector('.wrapper_small');
+           const tools = block.querySelectorAll('.formula-item-popup');
+           target.classList.remove('formula-item__active');
+           tools.forEach((element) => {
+               if (element.className.substr(toolId.length - 2) === lastChar ) {
+                   element.classList.remove('tooltip-active');
+                   const coords = element.getBoundingClientRect();
+                   if (coords.top < 0) { 
+                       element.classList.remove('to-bottom');
+                   } 
+               } else {
+                   element.classList.remove('to-bottom');
+                   element.classList.remove('tooltip-active');
+               }
+           });
+       }        
+   });
 
+   const showSlides =() => {
+        const tooltipCarousel = new sliderCarousel({
+            main: '.formula-slider-wrap',
+            wrap: '.formula-slider',
+            prev: '#formula-arrow_left',
+            next: '#formula-arrow_right',
+            slidesToShow: 1,
+            infinity: true,
+        });
+        tooltipCarousel.init();
+    };
 
+    const widthWindow = document.documentElement.clientWidth;
+    if (widthWindow < 1025) {
+        showSlides();
+    }
 
-
-    // parents.addEventListener('mouseover', (event) => {
-    //     const  target = event.target.closest('.formula-item');
-        
-    //     if (target) {
-    //         let tooltipHtml = target.querySelector('.formula-item-popup');
-            
-    //         tooltipHtml.classList.add('tooltip-active');
-    //         const coords = tooltipHtml.getBoundingClientRect();
-    //         if (coords.top < 0) { 
-    //             target.classList.add('to-bottom');
-    //         } 
-    //     }     
-
-    // });
-
-    // parents.addEventListener('mouseout', (event) => {
-    //     const  target = event.target.closest('.formula-item');
-        
-    //     if (target) {
-    //         // let tooltipHtml = target.querySelector('.formula-item-popup');
-            
-    //         // tooltipHtml.classList.add('tooltip-active');
-    //         // const coords = tooltipHtml.getBoundingClientRect();
-    //         // if (coords.top < 0) { 
-    //         //     target.classList.add('to-bottom');
-    //         // } 
-    //     }     
-
-    // });
-
-    // parents.addEventListener('mouseover', (event) => {
-    //      const  target = event.target.closest('.formula-item');
-         
-        
-    //     // if (target) {
-    //     //     target.classList.add('tooltip-active');
-    //     //     let tooltipHtml = target.querySelector('.formula-item-popup');
-    //     //     const coords = tooltipHtml.getBoundingClientRect();
-    //     //     if (coords.top < 0) { 
-    //     //         target.classList.add('to-bottom');
-    //     //     } 
-    //     // }
-
-    // });
-
-    
 };
 
 export default tooltip;
