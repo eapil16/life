@@ -11,6 +11,9 @@ import getDataBase from './modules/getDataBase';
 import viewsRepairs from './modules/viewsRepairs';
 import contract from './modules/contract';
 import problems from './modules/problems';
+import designSolutions from './modules/designSolutions';
+import disignerPopup from './modules/disignerPopup';
+import slidenInWindow from './modules/slidenInWindow';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -26,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     viewsRepairs();
     contract();
     problems();
+    designSolutions();
+    disignerPopup();
+    slidenInWindow();
     
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',

@@ -78,10 +78,6 @@ const viewsRepairs = () => {
         if (targetButton) {
             const value = targetButton.getAttribute('data-tab').trim();
 
-            // const textValue = targetButton.className,
-            //   value = textValue.substr(textValue.length - 1);
-            
-              
             tabsContent.forEach((element, index) => {
                 const elementvalue = element.className.substr(element.className.length - 1);
                 if (elementvalue === value) {
