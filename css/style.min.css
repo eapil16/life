@@ -361,4 +361,26 @@ li.tabs-active .msg {
     .popup-portfolio-slider-wrap {
         height: auto;
     }
+    .slider-arrow-tablet-mobile {
+        z-index: 199;
+    }
+    .slider-arrow-tablet-mobile {
+        width: 25px;
+        height: 25px;
+    }
+    .portfolio-slider__slide-frame__image {
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        opacity:0;
+        transition:all 400ms ease;
+    }
+    .portfolio-slider__slide-frame__image.active {
+        transition:all 400ms ease;
+        opacity:1;
+    }
+    .portfolio-slider__slide-frame__image img {
+        width:100%;
+    }
 }

@@ -14,6 +14,8 @@ import problems from './modules/problems';
 import designSolutions from './modules/designSolutions';
 import disignerPopup from './modules/disignerPopup';
 import slidenInWindow from './modules/slidenInWindow';
+import PortfolioCarousel from './modules/PortfolioSlider';
+import portfolioSliderMobile from './modules/portfolioSliderMobile';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -32,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     designSolutions();
     disignerPopup();
     slidenInWindow();
-    
+    portfolioSliderMobile();
+   
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',
         wrap: '.partners-slider',
@@ -50,4 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }]
     });
     carousel.init();
+
+    const carouselPortfolio = new PortfolioCarousel({
+        main: '#portfolio-inspires',
+        wrap: '.portfolio-slider__wrap',
+        prev: '#portfolio-arrow_left',
+        next: '#portfolio-arrow_right',
+        slidesToShow: 3,
+        infinity: true,
+        responsive : [{
+            breakpoint: 1200,
+            slidesToShow:2
+        },
+        {
+            breakpoint: 900,
+            slidesToShow:1
+        }]
+    });
+
+    carouselPortfolio.init();
 });
