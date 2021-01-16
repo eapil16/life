@@ -103,13 +103,13 @@ class PortfolioCarousel {
     }
 
     nextSlider(){
-        if (this.options.infinity || this.options.position < this.options.maxPosition) {
+        if (this.options.infinity || this.options.position < this.slides.length - this.slidesToShow) {
             ++this.options.position;
-            if (this.options.position < this.options.maxPosition + 1) {
+            if (this.options.position < this.slides.length - this.slidesToShow + 1) {
                 this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
                 this.next.style.display = 'flex';
             } 
-            if (this.options.position < this.options.maxPosition ) {
+            if (this.options.position < this.slides.length - this.slidesToShow ) {
                 this.next.style.display = 'flex';
                 this.prev.style.display = 'none';
             } else {

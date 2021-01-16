@@ -1,9 +1,11 @@
 'use strict';
 const sliderReviews = () => {
+
     const slide = document.querySelectorAll('.reviews-slider__slide'),
         // slider = document.querySelector('.reviews-slider-wrap'),
         slider = document.getElementById('reviews'),
-        dotsUl = document.querySelector('.slider-dots-reviews');
+        dotsUl = document.querySelector('.slider-dots-reviews'),
+        parent = document.getElementById('reviews');
             
     let currentSlide = 0,
         interval;
@@ -38,10 +40,11 @@ const sliderReviews = () => {
         clearInterval(interval);
     };
 
-    slider.addEventListener('click', (event) => {
+    parent.addEventListener('click', (event) => {
         event.preventDefault();
 
         let target = event.target;
+        console.log('target: ', target);
     
         if(!target.matches('.slider-arrow, .dot')) {
             return;
@@ -50,11 +53,12 @@ const sliderReviews = () => {
         prevSlide(slide, currentSlide, 'slide-active');
         prevSlide(dot, currentSlide, 'dot_active');
 
-        if (target.matches('#reviews-arrow_right')) {
+        if (event.target.closest('#reviews-arrow_right')) {
+            console.log('target.closest(#reviews-arrow_right): ', target);
             currentSlide++;
-        } else if (target.matches('#reviews-arrow_left')) {
+        } else if (event.target.closest('#reviews-arrow_left')) { 
             currentSlide--;
-        } else if (target.matches('.dot')) {
+        } else if (target.closest('.dot')) {
             dot.forEach((elem, index) => {
                 if(elem === target){
                     currentSlide = index;

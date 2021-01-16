@@ -42,13 +42,15 @@ const tabsWorking = () => {
         }
     });
 
+    let counetSlide = 1;
+    
     const showSlidesTabs =() => {
         const carouselTabs = new sliderCarousel({
         main: '#scheme nav',
         wrap: '#scheme-list',
         prev: '#nav-arrow-scheme_left',
         next: '#nav-arrow-scheme_right',
-        slidesToShow: 5,
+        slidesToShow: counetSlide,
         infinity: true,
         responsive : [{
             breakpoint: 1025,
@@ -67,6 +69,18 @@ const tabsWorking = () => {
     };
 
     const widthWindow = document.documentElement.clientWidth;
+
+    if (widthWindow >= 1135) {
+        counetSlide = 5;
+    } else if (widthWindow <= 1134 && widthWindow >= 1025) {
+        counetSlide = 4;
+    } else if (widthWindow <= 1024 && widthWindow >= 768) {
+        counetSlide = 2;       
+    } else if (widthWindow < 767) {
+        counetSlide = 1;  
+    }
+    console.log('counetSlide: ', counetSlide);
+
     if (widthWindow < 1135) {
         showSlidesTabs();
     }

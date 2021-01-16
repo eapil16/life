@@ -1,6 +1,5 @@
 'use strict';
 const portfolioSliderMobile = () => {
-   
     const sliderMobile = () => {
         const slide = document.querySelectorAll('.portfolio-slider__slide-frame__image'),
             slideText = document.querySelector('.portfolio-slider__slide-frame__image'),

@@ -1,9 +1,11 @@
 'use strict';
+import sliderCarousel from '../modules/SliderCarousel';
 const getDataBase = () => {
     const targetList = document.querySelector('.nav-list-popup-repair'),
         blockDate = document.querySelector('.popup-repair-types-content__head-date'),
         blockConent = document.querySelector('.popup-repair-types-content-table'),
-        titleBlock = document.getElementById('switch-inner');
+        titleBlock = document.getElementById('switch-inner'),
+        parent = document.getElementById('repair-types');
 
     let objData;
 
@@ -86,6 +88,32 @@ const getDataBase = () => {
             renderData(objData);            
         })
         .catch((error) => console.error(error)); 
+
+    const showMobileTabs =() => {
+        const carousel = new sliderCarousel({
+            main: '.nav-popup-repair-types',
+            wrap: '.nav-list-popup-repair',
+            prev: '#nav-arrow-popup-repair_left',
+            next: '#nav-arrow-popup-repair_right',
+            slidesToShow: 2,
+            infinity: true,
+            responsive : [{
+                breakpoint: 415,
+                slidesToShow:1
+            }]
+        });
+        carousel.init();
+    };
+
+
+    parent.addEventListener('click', (event) => {
+        if (event.target.closest('.link-list-repair')) {
+            const widthWindow = document.documentElement.clientWidth;
+            if (widthWindow < 1025) {
+                showMobileTabs();
+            }
+        }
+    }); 
 
 };
 

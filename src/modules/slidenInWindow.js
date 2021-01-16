@@ -8,7 +8,7 @@ const slidenInWindow = () => {
 
         const currentSmallSlide = document.querySelectorAll('.portfolio-slider__slide-frame');
         currentSmallSlide.forEach((elem, index) => {
-            elem.setAttribute('slider-tab', ++index);
+            elem.setAttribute('slider-tab', index);
         });
     
 
@@ -26,7 +26,7 @@ const slidenInWindow = () => {
             firstSlideText = modalBlock.querySelector('.popup-portfolio-text');
         
         slide.forEach((elem, index) => {
-            elem.setAttribute('mobile-tab', ++index);
+            elem.setAttribute('mobile-tab', index);
         });
 
        const targElem = item.getAttribute('slider-tab');

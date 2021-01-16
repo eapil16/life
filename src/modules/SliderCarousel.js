@@ -94,16 +94,16 @@ class SliderCarousel {
         if (this.options.infinity || this.options.position > 0) {
             --this.options.position;
             if (this.options.position < 0) {
-                this.options.position = this.options.maxPosition; 
+                this.options.position = this.slides.length - this.slidesToShow; 
             }
             this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
         }
     }
 
     nextSlider(){
-        if (this.options.infinity || this.options.position < this.options.maxPosition) {
+        if (this.options.infinity || this.options.position < this.slides.length - this.slidesToShow) {
             ++this.options.position;
-            if (this.options.position > this.options.maxPosition) {
+            if (this.options.position > this.slides.length - this.slidesToShow) {
                 this.options.position = 0;
             }
             this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;

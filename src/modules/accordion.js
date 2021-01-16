@@ -1,7 +1,7 @@
 'use strict';
 const accordion = () => {
     const accordion = document.querySelector('.accordion'),
-        list = accordion.querySelectorAll('li');
+        list = accordion.querySelectorAll('.title_block');
         
     const addClassActive = (data) => {
         list.forEach((element)=> {
@@ -16,6 +16,7 @@ const accordion = () => {
     };
 
     accordion.addEventListener('click', (event) => {
+        console.log('event: ', event);
         if (event.target.closest('li')) {
             addClassActive(event.target.closest('li h2'));
         }   
