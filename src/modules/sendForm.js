@@ -105,6 +105,12 @@ const sendForm = () => {
         } else {
             event.preventDefault();
             target.append(div);
+            setTimeout(function(){
+                const pError = document.querySelector('.error-checked');
+                if (pError) {
+                    pError.remove();
+                }                        
+            },3000);
         }            
 
     });  
