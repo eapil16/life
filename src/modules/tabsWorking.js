@@ -70,9 +70,9 @@ const tabsWorking = () => {
 
     const widthWindow = document.documentElement.clientWidth;
 
-    if (widthWindow >= 1135) {
+    if (widthWindow >= 1140) {
         counetSlide = 5;
-    } else if (widthWindow <= 1134 && widthWindow >= 1025) {
+    } else if (widthWindow <= 1039 && widthWindow >= 1025) {
         counetSlide = 4;
     } else if (widthWindow <= 1024 && widthWindow >= 768) {
         counetSlide = 2;       

@@ -412,12 +412,6 @@ li.tabs-active .msg {
         border-radius: 20px;
         margin: 30px 0 15px;
     }
-    .popup-dialog-menu.show-menu {
-        opacity:1;
-    }
-    .popup-dialog-menu {
-        opacity:0;
-    }
 }
 .checkbox input[type=checkbox] {
     visibility: initial;
@@ -501,4 +495,15 @@ li.tabs-active .msg {
 .nav-list.nav-list-popup-repair.glo-slider__wrap {
     flex-wrap: nowrap;
     padding: 20px 0 !important;
+}
+
+.portfolio-slider__slide {
+    flex-wrap: nowrap;
+}
+
+.popup-dialog-menu.show-menu {
+    opacity:1;
+}
+.popup-dialog-menu {
+    opacity:0;
 }
