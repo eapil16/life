@@ -79,7 +79,7 @@ const tabsWorking = () => {
     } else if (widthWindow < 767) {
         counetSlide = 1;  
     }
-    console.log('counetSlide: ', counetSlide);
+    // console.log('counetSlide: ', counetSlide);
 
     if (widthWindow < 1135) {
         showSlidesTabs();
