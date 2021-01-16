@@ -384,3 +384,10 @@ li.tabs-active .msg {
         width:100%;
     }
 }
+.checkbox input[type=checkbox] {
+    visibility: initial;
+    opacity: 0;
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+}

@@ -54,6 +54,10 @@ const sendForm = () => {
                    loadMessage.classList.add('block-visibility');
                     form.reset();
                     setTimeout(function(){
+                        const pError = document.querySelector('.error-checked');
+                        if (pError) {
+                            pError.remove();
+                        }                        
                         loadMessage.classList.remove('block-visibility');
                     },3000);
                 }, (error) => {
@@ -75,13 +79,34 @@ const sendForm = () => {
         const target = event.target;
         const input = target.querySelector('.feedback-block__form-input_name');
         const checkedInputs = target.querySelector("input[type='checkbox']:checked");
-        if (checkedInputs && count >= 2){
-            input.classList.remove('error-input');
+       
+        const div = document.createElement('p');
+            div.classList.add('error-checked');
+            div.style.cssText = `
+            font-size: 14px;
+            color: #ffb015;`;
+            div.textContent = `вы не дали согласия с политикой конфиденциальности`;    
+        const feedbackName = target.querySelector('.feedback-block__form-input_name');
+       
+        if (feedbackName) {
+            if (checkedInputs && count >= 2){
+                input.classList.remove('error-input');
+                sendData(target);
+            } else {
+                event.preventDefault();
+                input.classList.add('error-input');
+            }
+        } else if (checkedInputs) {
             sendData(target);
+            const pError = document.querySelector('.error-checked');
+            if (pError) {
+                pError.remove();
+            }
         } else {
             event.preventDefault();
-            input.classList.add('error-input');
-        }        
+            target.append(div);
+        }            
+
     });  
 
     close.addEventListener('click', (enevt) => {
