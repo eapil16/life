@@ -8,7 +8,8 @@ const viewsRepairs = () => {
         counterBlock = document.getElementById('repair-counter'),
         content = counterBlock.querySelector('.slider-counter-content__current'),
         total = counterBlock.querySelector('.slider-counter-content__total');
-
+    const widthWindow = window.innerWidth;
+    let counetSlide = 1;
     const sliderRepair = (element) =>{
         const slide = element.querySelectorAll('.repair-types-slider__slide'),
         firstSlideItem = element.querySelector('.repair-types-slider__slide');
@@ -99,7 +100,7 @@ const viewsRepairs = () => {
         wrap: '.nav-list-repair',
         prev: '#nav-arrow-repair-left_base',
         next: '#nav-arrow-repair-right_base',
-        slidesToShow: 3,
+        slidesToShow: counetSlide,
         infinity: true,
         responsive : [{
             breakpoint: 767,
@@ -113,11 +114,27 @@ const viewsRepairs = () => {
         carouselRepair.init();
     };
 
-    const widthWindow = document.documentElement.clientWidth;
-    if (widthWindow < 1025) {
-        showRepairTabs();
-    }
+    const resizeWin = (widthWindow) => {
 
+        if (widthWindow < 1025) {
+            counetSlide = 3;
+        }
+        if (widthWindow <= 767 && widthWindow >= 576) {
+            counetSlide = 2;
+        }
+        if (widthWindow < 575) {
+            counetSlide = 1;
+        }
+    };
+
+    resizeWin(widthWindow);
+
+    window.addEventListener('resize', event => {
+        resizeWin(window.innerWidth);
+        if (counetSlide < 4) {
+            showRepairTabs();  
+        }              
+    });
 };
 
 export default viewsRepairs;

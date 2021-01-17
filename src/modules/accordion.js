@@ -1,7 +1,9 @@
 'use strict';
 const accordion = () => {
     const accordion = document.querySelector('.accordion'),
-        list = accordion.querySelectorAll('.title_block');
+        list = accordion.querySelectorAll('li'),
+        parent = document.getElementById('faq');
+
         
     const addClassActive = (data) => {
         list.forEach((element)=> {
@@ -12,14 +14,18 @@ const accordion = () => {
                 element.classList.remove('tabs-active');
                 element.querySelector('h2').classList.remove('msg-active');
             }
-        });        
+        });       
     };
 
-    accordion.addEventListener('click', (event) => {
-        console.log('event: ', event);
-        if (event.target.closest('li')) {
-            addClassActive(event.target.closest('li h2'));
-        }   
+    parent.addEventListener('click', (event) => {
+        if (event.target.closest('.msg')) {
+            event.target.preventDefaut();
+        } 
+        if (event.target.closest('.title_block')) {
+            console.log('event.target.closest(li): ', event.target.closest('li'));
+            addClassActive(event.target.closest('.title_block');
+        } 
+
     });
     
 };
