@@ -1,4 +1,3 @@
-'use strict';
 class SliderCarousel {
     constructor({
         main, 
@@ -25,7 +24,7 @@ class SliderCarousel {
             widthSlide: Math.floor(100 / slidesToShow),
             maxPosition: this.slides.length - this.slidesToShow
         };
-        this.responsive = responsive;
+        this.responsive = responsive;    
     }
 
     init(){
@@ -39,8 +38,7 @@ class SliderCarousel {
         }
         if (this.responsive) {
             this.responseInit();
-        }  
-        console.log('this.slidesToShow', this.slidesToShow);
+        }      
     }
 
     addGloClass() {
@@ -51,7 +49,7 @@ class SliderCarousel {
         }
         if (this.slidesToShow === 1) {
             this.main.classList.add('glo-slider__full');
-        } 
+        }
     }
     
     addStyle(){
@@ -137,8 +135,8 @@ class SliderCarousel {
             .glo-slider__next:hover,
             .glo-slider__prev:focus,
             .glo-slider__next:focus {
-                background: transparent !important;
-                outline:none !important;
+                background: transparent;
+                outline:none;
             }
         `;
         document.head.appendChild(style);

@@ -548,3 +548,9 @@ svg {
         margin: 0 0 20px 0;
     }
 }
+@media (max-width: 1024px) {
+    .partners-slider__slide {
+        max-width: 100%;
+        min-height: auto;
+    }
+}

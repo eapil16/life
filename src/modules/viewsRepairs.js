@@ -101,7 +101,7 @@ const viewsRepairs = () => {
         prev: '#nav-arrow-repair-left_base',
         next: '#nav-arrow-repair-right_base',
         slidesToShow: counetSlide,
-        infinity: true,
+        infinity: 3,
         responsive : [{
             breakpoint: 767,
             slidesToShow:2
@@ -114,29 +114,29 @@ const viewsRepairs = () => {
         carouselRepair.init();
     };
 
-    const resizeWin = (widthWindow) => {
-        if (widthWindow > 1025) {
-            return;
-        }
-        if (widthWindow < 1025) {
-            counetSlide = 3;
-        }
-        if (widthWindow <= 767 && widthWindow >= 576) {
-            counetSlide = 2;
-        }
-        if (widthWindow < 575) {
-            counetSlide = 1;
-        }
-    };
+    // const resizeWin = (widthWindow) => {
+    //     if (widthWindow > 1025) {
+    //         return;
+    //     }
+    //     if (widthWindow < 1025) {
+    //         counetSlide = 3;
+    //     }
+    //     if (widthWindow <= 767 && widthWindow >= 576) {
+    //         counetSlide = 2;
+    //     }
+    //     if (widthWindow < 575) {
+    //         counetSlide = 1;
+    //     }
+    // };
 
-    resizeWin(widthWindow);
+    // resizeWin(widthWindow);
 
-    window.addEventListener('resize', event => {
-        resizeWin(window.innerWidth);
-        if (counetSlide < 4) {
-            showRepairTabs();  
-        }              
-    });
+    // window.addEventListener('resize', event => {
+    //     resizeWin(window.innerWidth);
+    //     if (counetSlide < 4) {
+    //         showRepairTabs();  
+    //     }              
+    // });
 };
 
 export default viewsRepairs;
