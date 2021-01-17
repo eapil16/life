@@ -27,7 +27,7 @@ const portfolioSliderMobile = () => {
 
         parent.addEventListener('click', (event) => {
             event.preventDefault();
-                       
+              
             if(!event.target.closest('.slider-arrow-tablet-mobile')) {
                 return;
             }   
@@ -49,6 +49,7 @@ const portfolioSliderMobile = () => {
             } 
 
             nextSlide(slide, currentSlide, 'active');
+
         });
     };   
    

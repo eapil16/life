@@ -115,7 +115,9 @@ const viewsRepairs = () => {
     };
 
     const resizeWin = (widthWindow) => {
-
+        if (widthWindow > 1025) {
+            return;
+        }
         if (widthWindow < 1025) {
             counetSlide = 3;
         }

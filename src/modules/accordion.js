@@ -3,11 +3,11 @@ const accordion = () => {
     const accordion = document.querySelector('.accordion'),
         list = accordion.querySelectorAll('li'),
         parent = document.getElementById('faq');
-
         
     const addClassActive = (data) => {
         list.forEach((element)=> {
-            if(element.querySelector('h2').textContent.trim() === data.textContent.trim()) {
+            const value = element.querySelector('h2').textContent;
+            if(value.trim() === data.trim()) {
                 element.classList.add('tabs-active');
                 element.querySelector('h2').classList.add('msg-active');
             } else {
@@ -18,14 +18,10 @@ const accordion = () => {
     };
 
     parent.addEventListener('click', (event) => {
-        if (event.target.closest('.msg')) {
-            event.target.preventDefaut();
-        } 
-        if (event.target.closest('.title_block')) {
-            console.log('event.target.closest(li): ', event.target.closest('li'));
-            addClassActive(event.target.closest('.title_block');
-        } 
-
+        const target = event.target.closest('.title_block');
+        if (target) {
+            addClassActive(target.textContent); 
+        }
     });
     
 };

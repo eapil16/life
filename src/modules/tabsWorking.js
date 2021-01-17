@@ -87,8 +87,9 @@ const tabsWorking = () => {
             counetSlide = 2;
         }
         if (widthWindow < 767) {
-            counetSlide = 1;
+            counetSlide = 1;            
         }
+        console.log('counetSlide: ', counetSlide);
     };
 
     resizeWin(widthWindow);
@@ -97,6 +98,10 @@ const tabsWorking = () => {
         resizeWin(window.innerWidth);
         showSlidesTabs();
     });
+
+    // if (widthWindow < 1135) {
+    //     showSlidesTabs();
+    // }
 };
 
 export default tabsWorking;

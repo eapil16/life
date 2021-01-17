@@ -40,6 +40,7 @@ class SliderCarousel {
         if (this.responsive) {
             this.responseInit();
         }  
+        console.log('this.slidesToShow', this.slidesToShow);
     }
 
     addGloClass() {

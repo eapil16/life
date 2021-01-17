@@ -4,16 +4,19 @@ const slidenInWindow = () => {
         parent = document.getElementById('portfolio'),
         counterBlock = document.getElementById('popup-portfolio-counter'),
         content = counterBlock.querySelector('.slider-counter-content__current'),
-        total = counterBlock.querySelector('.slider-counter-content__total');
+        total = counterBlock.querySelector('.slider-counter-content__total'),
+        popupРortfolio = document.querySelector('.popup-portfolio'),
+        portImage = document.querySelectorAll('.portfolio-slider__slide-frame__image');
 
-        const currentSmallSlide = document.querySelectorAll('.portfolio-slider__slide-frame');
-        currentSmallSlide.forEach((elem, index) => {
-            elem.setAttribute('slider-tab', index);
-        });
-    
+    portImage.forEach((elem, index) => {
+        elem.setAttribute('mobile-image', index);
+    });
+    const currentSmallSlide = document.querySelectorAll('.portfolio-slider__slide-frame');
+    currentSmallSlide.forEach((elem, index) => {
+        elem.setAttribute('slider-tab', index);
+    });    
 
     const sliderPortfolioPopup = (item) => {
-       
         const getElementToSlide = document.querySelector('.active-get');
         if (getElementToSlide) {
             getElementToSlide.classList.remove('active-get');
@@ -24,20 +27,39 @@ const slidenInWindow = () => {
             slideText = modalBlock.querySelectorAll('.popup-portfolio-text'),
             firstSlideItem = document.querySelector('.popup-portfolio-slider__slide'),
             firstSlideText = modalBlock.querySelector('.popup-portfolio-text');
-        
+            
+        total.textContent = slide.length;
+        content.textContent = 1;    
+
+
         slide.forEach((elem, index) => {
             elem.setAttribute('mobile-tab', index);
         });
 
-       const targElem = item.getAttribute('slider-tab');
-       const firstSlide = slide[`${targElem}`];
+        slideText.forEach((elem, index) => {
+            elem.setAttribute('text-tab', index);
+        });
 
-        firstSlide.classList.add('active'); 
-        firstSlide.classList.add('active-get');// добавляем нужному блоку класс
+        const targElem = item.getAttribute('slider-tab');
+        const firstSlide = slide[`${targElem}`];
+        const targElemMobile = item.getAttribute('mobile-image');
+        const firstSlideMobile = slide[`${targElemMobile}`];
+       
+        if (targElemMobile) {
+            slide.forEach((elem) => {
+                elem.classList.remove('active'); 
+            });
+            firstSlideMobile.classList.add('active'); 
+            content.textContent = +targElemMobile + 1;
+        }
+
+        if (firstSlide) {
+            firstSlide.classList.add('active'); 
+            firstSlide.classList.add('active-get');// добавляем нужному блоку класс
+        }    
+
         firstSlideText.classList.add('active-text');
-        let currentSlide = 0;
-        total.textContent = slide.length;
-        content.textContent = 1;
+        let currentSlide = 0;        
                 
         const prevSlide = (elem, index, strClass) => {
             elem[index].classList.remove(strClass);
@@ -88,6 +110,13 @@ const slidenInWindow = () => {
         if (event.target.closest('.close')) {
             modalBlock.classList.remove('block-visibility'); 
         }
+
+        const targetImage = event.target.closest('.portfolio-slider__slide-frame__image');
+        if (targetImage) {
+            popupРortfolio.classList.add('block-visibility');
+            sliderPortfolioPopup(targetImage);
+        }
+
     });
 
     modalBlock.addEventListener('click', (event) => {
