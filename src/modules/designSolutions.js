@@ -143,7 +143,7 @@ const designSolutions = () => {
             slidesToShow:1
         }]
         });
-        carouselDesign.init();
+        // carouselDesign.init();
     };
 
     const widthWindow = document.documentElement.clientWidth;

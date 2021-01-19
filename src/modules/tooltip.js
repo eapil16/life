@@ -63,7 +63,7 @@ const tooltip = () => {
             slidesToShow: 1,
             infinity: true,
         });
-        tooltipCarousel.init();
+        // tooltipCarousel.init();
     };
 
     const widthWindow = document.documentElement.clientWidth;

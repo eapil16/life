@@ -72,7 +72,7 @@ const tabsWorking = () => {
                 }
             ]
         });
-        carouselTabs.init();
+        // carouselTabs.init();
     };
 
     // const resizeWin = (widthWindow) => {

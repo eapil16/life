@@ -35,36 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     disignerPopup();
     slidenInWindow();
     portfolioSliderMobile();
-   
-    // const count = window.innerWidth < 768 ? 1 : 3;
-    let count;
-    const widthWindow = window.innerWidth;
-
-    if (widthWindow >= 1200) {
-        count = 3;
-    }
-    if (widthWindow <= 1199) {
-        count = 2;
-    }
-    if (widthWindow <= 768) {
-        count = 1;
-    }
-    console.log('count: ', count);
 
     const carousel = new sliderCarousel({
         main: '#partners .wrapper',
         wrap: '.partners-slider',
         prev: '#partners-arrow_left',
         next: '#partners-arrow_right',
-        slidesToShow: (window.innerWidth >=1200) ? 3 :
-        (window.innerWidth >=1199 && window.innerWidth <= 768) ? 2 :
-        (window.innerWidth <= 767) ? 1 :
-        2,
+        slidesToShow: window.innerWidth < 768 ? 1 : 2,
         infinity: true,
-        responsive: [{
-                breakpoint: 1200,
-                slidesToShow: 2
-            },
+        responsive: [
             {
                 breakpoint: 768,
                 slidesToShow: 1
@@ -73,22 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     carousel.init();
 
-    const carouselPortfolio = new PortfolioCarousel({
-        main: '#portfolio-inspires',
-        wrap: '.portfolio-slider__wrap',
-        prev: '#portfolio-arrow_left',
-        next: '#portfolio-arrow_right',
-        slidesToShow: 3,
-        infinity: true,
-        responsive : [{
-            breakpoint: 1200,
-            slidesToShow:2
-        },
-        {
-            breakpoint: 900,
-            slidesToShow:1
-        }]
-    });
+    // const carouselPortfolio = new PortfolioCarousel({
+    //     main: '#portfolio-inspires',
+    //     wrap: '.portfolio-slider__wrap',
+    //     prev: '#portfolio-arrow_left',
+    //     next: '#portfolio-arrow_right',
+    //     slidesToShow: 3,
+    //     infinity: true,
+    //     responsive : [{
+    //         breakpoint: 1200,
+    //         slidesToShow:2
+    //     },
+    //     {
+    //         breakpoint: 900,
+    //         slidesToShow:1
+    //     }]
+    // });
 
-    carouselPortfolio.init();
+    // carouselPortfolio.init();
 });

@@ -111,7 +111,7 @@ const viewsRepairs = () => {
             slidesToShow:1
         }]
         });
-        carouselRepair.init();
+        // carouselRepair.init();
     };
 
     // const resizeWin = (widthWindow) => {

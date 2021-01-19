@@ -101,7 +101,7 @@ const disignerPopup = () => {
             slidesToShow:1
         }]
         });
-        carouselDisignerPopup.init();
+        // carouselDisignerPopup.init();
     };
 
     navTabsTarent.addEventListener('click', (event) => {

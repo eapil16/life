@@ -44,7 +44,6 @@ const sliderReviews = () => {
         event.preventDefault();
 
         let target = event.target;
-        console.log('target: ', target);
     
         if(!target.matches('.slider-arrow, .dot')) {
             return;
@@ -54,7 +53,6 @@ const sliderReviews = () => {
         prevSlide(dot, currentSlide, 'dot_active');
 
         if (event.target.closest('#reviews-arrow_right')) {
-            console.log('target.closest(#reviews-arrow_right): ', target);
             currentSlide++;
         } else if (event.target.closest('#reviews-arrow_left')) { 
             currentSlide--;

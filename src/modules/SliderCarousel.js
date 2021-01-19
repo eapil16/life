@@ -5,7 +5,7 @@ class SliderCarousel {
         next,
         prev,
         position = 0,
-        slidesToShow = 3,
+        slidesToShow = 1,
         infinity = false,
         responsive = []
     }) {
@@ -24,7 +24,8 @@ class SliderCarousel {
             widthSlide: Math.floor(100 / slidesToShow),
             maxPosition: this.slides.length - this.slidesToShow
         };
-        this.responsive = responsive;    
+        this.responsive = responsive;   
+       
     }
 
     init(){
@@ -38,7 +39,8 @@ class SliderCarousel {
         }
         if (this.responsive) {
             this.responseInit();
-        }      
+        }  
+        
     }
 
     addGloClass() {
@@ -59,6 +61,7 @@ class SliderCarousel {
             style = document.createElement('style');
             style.id = 'sliderCarusel-style';
         }
+        console.log('this.options.widthSlide: ', this.options.widthSlide);
         style.textContent = `
             .glo-slider {
                 overflow: hidden !important;
@@ -67,7 +70,7 @@ class SliderCarousel {
                 display: flex !important;
                 transition: transform 0.5s !important;
                 will-change: transform !important;
-                padding: 0 0 50px 0 !important;
+                padding: 0 0 20px 0 !important;
             }  
             .glo-slider__item {
                 display:flex !important;
@@ -146,7 +149,7 @@ class SliderCarousel {
         const slidesToShowDefault = this.slidesToShow;
         const allResponse = this.responsive.map(item => item.breakpoint);
         const maxResponse = Math.max( ... allResponse);
-        
+                
         const checkResponse = () => {
             const widthWindow = document.documentElement.clientWidth;
             if (widthWindow < maxResponse) {
@@ -161,6 +164,7 @@ class SliderCarousel {
                 this.slidesToShow = slidesToShowDefault;
                 this.options.widthSlide = Math.floor(100 / this.slidesToShow);
                 this.addStyle();
+                
             }
         };
 
