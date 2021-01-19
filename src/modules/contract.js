@@ -82,7 +82,7 @@ const contract = () => {
             slidesToShow: 1,
             infinity: true,
         });
-        // contractTabs.init();
+        contractTabs.init();
     };
 
     const widthWindow = document.documentElement.clientWidth;

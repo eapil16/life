@@ -102,7 +102,7 @@ const getDataBase = () => {
                 slidesToShow:1
             }]
         });
-        // carousel.init();
+        carousel.init();
     };
 
 

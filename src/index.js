@@ -53,35 +53,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     carousel.init();
 
+    const carouselPortfolio = new PortfolioCarousel({
+        main: '#portfolio-inspires',
+        wrap: '.portfolio-slider__wrap',
+        prev: '#portfolio-arrow_left',
+        next: '#portfolio-arrow_right',
+        slidesToShow: 3,
+        infinity: true,
+        responsive : [{
+            breakpoint: 1200,
+            slidesToShow:2
+        },
+        {
+            breakpoint: 900,
+            slidesToShow:1
+        }]
+    });
+    carouselPortfolio.init();
     
-
-
-
-    
-
-
-
-
-
-
-
-
-    // const carouselPortfolio = new PortfolioCarousel({
-    //     main: '#portfolio-inspires',
-    //     wrap: '.portfolio-slider__wrap',
-    //     prev: '#portfolio-arrow_left',
-    //     next: '#portfolio-arrow_right',
-    //     slidesToShow: 3,
-    //     infinity: true,
-    //     responsive : [{
-    //         breakpoint: 1200,
-    //         slidesToShow:2
-    //     },
-    //     {
-    //         breakpoint: 900,
-    //         slidesToShow:1
-    //     }]
-    // });
-
-    // carouselPortfolio.init();
 });

@@ -106,7 +106,6 @@ class SliderTabs {
     }
 
     nextSlider(){
-        console.log('this.options.widthSlide: ', this.options.widthSlide);
         if (this.options.infinity || this.options.position < this.slides.length - this.slidesToShow) {
             ++this.options.position;
             if (this.options.position > this.slides.length - this.slidesToShow) {
@@ -179,7 +178,7 @@ class SliderTabs {
     }
 
     getWidth(){
-        console.log(1);
+       
         let arr = [];
         for (let i = 0; i < this.slides.length; i++) {
             arr.push(this.slides[i].offsetWidth);
@@ -188,12 +187,10 @@ class SliderTabs {
         const maxWidth = Math.max( ... arr);
         const checWidth = () => {
             this.options.widthSlide = maxWidth;
-            console.log('this.options.widthSlide: ', this.options.widthSlide);
             for (let i = 0; i < this.slides.length; i++) {
-                this.slides[i].style.width = maxWidth + 'px !important'; 
-                console.log('i: ', i);
-               
+            this.slides[i].style.cssText = `width: ${maxWidth}px !important`;               
             }
+            
             
             // let style = document.getElementById('sliderCarusel-style');
             // if (!style) {

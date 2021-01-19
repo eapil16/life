@@ -40,7 +40,6 @@ class SliderCarousel {
         if (this.responsive) {
             this.responseInit();
         }  
-        console.log('12345678910: ', this.options.widthSlide);
     }
 
     addGloClass() {
@@ -61,7 +60,6 @@ class SliderCarousel {
             style = document.createElement('style');
             style.id = 'sliderCarusel-style';
         }
-        console.log('this.options.widthSlide: ', this.options.widthSlide);
         style.textContent = `
             .glo-slider {
                 overflow: hidden !important;
