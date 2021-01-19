@@ -1,5 +1,5 @@
 'use strict';
-import sliderCarousel from '../modules/SliderCarousel';
+import SliderTabs from '../modules/sliderTabs';
 const designSolutions = () => {
     const navTabsTarent = document.getElementById('designs'),
         navTabs = navTabsTarent.querySelectorAll('.button_o'),
@@ -126,30 +126,30 @@ const designSolutions = () => {
         }
     });
 
-    const showDesignTabs =() => {
-        const carouselDesign = new sliderCarousel({
-        main: '#designs nav',
-        wrap: '#designs-list',
-        prev: '#nav-arrow-designs_left',
-        next: '#nav-arrow-designs_right',
-        slidesToShow: 3,
-        infinity: true,
-        responsive : [{
-            breakpoint: 767,
-            slidesToShow:2
-        },
-        {
-            breakpoint: 576,
-            slidesToShow:1
-        }]
-        });
-        // carouselDesign.init();
-    };
+    // const showDesignTabs =() => {
+        const carouselDesign = new SliderTabs({
+            main: '#designs nav',
+            wrap: '#designs-list',
+            prev: '#nav-arrow-designs_left',
+            next: '#nav-arrow-designs_right',
+            slidesToShow: 3,
+            infinity: true,
+            responsive : [{
+                breakpoint: 767,
+                slidesToShow:2
+            },
+            {
+                breakpoint: 576,
+                slidesToShow:1
+            }]
+            });
+            carouselDesign.init();
+    // };
 
-    const widthWindow = document.documentElement.clientWidth;
-    if (widthWindow < 1135) {
-        showDesignTabs();
-    }
+    // const widthWindow = document.documentElement.clientWidth;
+    // if (widthWindow < 1135) {
+    //     showDesignTabs();
+    // }
 
 };
 export default designSolutions;

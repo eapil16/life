@@ -1,45 +1,48 @@
-class SliderCarousel {
+class SliderTabs {
     constructor({
         main, 
         wrap, 
         next,
         prev,
         position = 0,
-        slidesToShow = 3,
+        // slidesToShow = 3,
         infinity = false,
-        responsive = []
+        responsive = [],
     }) {
         if (!main || !wrap) {
             console.warn('slider-carusel: Необходимо 2 свойства, "main" и "wpap"');
         }
+        this.widthSlide = 
         this.main = document.querySelector(main);  
         this.wrap = document.querySelector(wrap); 
         this.slides = document.querySelector(wrap).children;
         this.next = document.querySelector(next);
         this.prev = document.querySelector(prev);
-        this.slidesToShow = slidesToShow;
+        // this.slidesToShow = slidesToShow;
         this.options = {
             position,
             infinity,
-            widthSlide: Math.floor(100 / slidesToShow),
+            // widthSlide: Math.floor(100 / slidesToShow),
             maxPosition: this.slides.length - this.slidesToShow
         };
         this.responsive = responsive;    
     }
 
     init(){
-        this.addGloClass();
-        this.addStyle();
+        this.getWidth();  
+        // this.addGloClass();
+        // this.addStyle();
         if (this.prev && this.next) {
             this.controlSlider();
         } else {
            this.addArrow(); 
            this.controlSlider();
         }
-        if (this.responsive) {
-            this.responseInit();
-        }  
-        this.getWidth();    
+        // if (this.responsive) {
+        //     this.responseInit();
+        // }  
+       
+
     }
 
     addGloClass() {
@@ -91,16 +94,19 @@ class SliderCarousel {
     }
 
     prevSlider(){
+        
         if (this.options.infinity || this.options.position > 0) {
             --this.options.position;
             if (this.options.position < 0) {
                 this.options.position = this.slides.length - this.slidesToShow; 
             }
             this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
+            
         }
     }
 
     nextSlider(){
+        console.log('this.options.widthSlide: ', this.options.widthSlide);
         if (this.options.infinity || this.options.position < this.slides.length - this.slidesToShow) {
             ++this.options.position;
             if (this.options.position > this.slides.length - this.slidesToShow) {
@@ -173,6 +179,7 @@ class SliderCarousel {
     }
 
     getWidth(){
+        console.log(1);
         let arr = [];
         for (let i = 0; i < this.slides.length; i++) {
             arr.push(this.slides[i].offsetWidth);
@@ -206,4 +213,4 @@ class SliderCarousel {
 
 }
 
-export default SliderCarousel;
+export default SliderTabs;

@@ -40,7 +40,7 @@ class SliderCarousel {
         if (this.responsive) {
             this.responseInit();
         }  
-        console.log('12345: ', this.options.widthSlide);
+        console.log('12345678910: ', this.options.widthSlide);
     }
 
     addGloClass() {

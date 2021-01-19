@@ -16,6 +16,7 @@ import disignerPopup from './modules/disignerPopup';
 import slidenInWindow from './modules/slidenInWindow';
 import PortfolioCarousel from './modules/PortfolioSlider';
 import portfolioSliderMobile from './modules/portfolioSliderMobile';
+import SliderTabs from './modules/SliderTabs';
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -51,6 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     });
     carousel.init();
+
+    
+
+
+
+    
+
+
+
+
+
+
+
 
     // const carouselPortfolio = new PortfolioCarousel({
     //     main: '#portfolio-inspires',
