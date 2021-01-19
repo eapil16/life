@@ -1,5 +1,5 @@
 'use strict';
-import SliderTabs from '../modules/sliderTabs';
+import sliderCarousel from '../modules/SliderCarousel';
 const designSolutions = () => {
     const navTabsTarent = document.getElementById('designs'),
         navTabs = navTabsTarent.querySelectorAll('.button_o'),
@@ -125,9 +125,27 @@ const designSolutions = () => {
             pupap.classList.remove('block-visibility');
         }
     });
+    const widthWindow = window.innerWidth;
+    let counetSlide = 1;
+    const resizeWin = (widthWindow) => {
 
-    // const showDesignTabs =() => {
-        const carouselDesign = new SliderTabs({
+        if (widthWindow >= 1135) {
+            counetSlide = 5;
+        }
+        if (widthWindow <= 1134 && widthWindow >= 1025) {
+            counetSlide = 4;
+        }
+        if (widthWindow <= 1024 && widthWindow >= 768) {
+            counetSlide = 2;
+        }
+        if (widthWindow < 767) {
+            counetSlide = 1;            
+        }
+        console.log('counetSlide: ', counetSlide);
+    };
+
+    const showDesignTabs =() => {
+        const carouselTabs = new sliderCarousel({
             main: '#designs nav',
             wrap: '#designs-list',
             prev: '#nav-arrow-designs_left',
@@ -143,13 +161,17 @@ const designSolutions = () => {
                 slidesToShow:1
             }]
             });
-            carouselDesign.init();
-    // };
+            carouselTabs.init();
+    };
 
-    // const widthWindow = document.documentElement.clientWidth;
-    // if (widthWindow < 1135) {
-    //     showDesignTabs();
-    // }
+    resizeWin(widthWindow);
+
+    window.addEventListener('resize', event => {
+        resizeWin(window.innerWidth);
+        showDesignTabs();
+    });
+
+    
 
 };
 export default designSolutions;

@@ -72,38 +72,32 @@ const tabsWorking = () => {
                 }
             ]
         });
-        // carouselTabs.init();
+        carouselTabs.init();
     };
 
-    // const resizeWin = (widthWindow) => {
+    const resizeWin = (widthWindow) => {
 
-    //     if (widthWindow >= 1135) {
-    //         counetSlide = 5;
-    //     }
-    //     if (widthWindow <= 1134 && widthWindow >= 1025) {
-    //         counetSlide = 4;
-    //     }
-    //     if (widthWindow <= 1024 && widthWindow >= 768) {
-    //         counetSlide = 2;
-    //     }
-    //     if (widthWindow < 767) {
-    //         counetSlide = 1;            
-    //     }
-    //     console.log('counetSlide: ', counetSlide);
-    // };
+        if (widthWindow >= 1135) {
+            counetSlide = 5;
+        }
+        if (widthWindow <= 1134 && widthWindow >= 1025) {
+            counetSlide = 4;
+        }
+        if (widthWindow <= 1024 && widthWindow >= 768) {
+            counetSlide = 2;
+        }
+        if (widthWindow < 767) {
+            counetSlide = 1;            
+        }
+        console.log('counetSlide: ', counetSlide);
+    };
 
-    // resizeWin(widthWindow);
+    resizeWin(widthWindow);
 
-    // window.addEventListener('resize', event => {
-    //     resizeWin(window.innerWidth);
-    //     showSlidesTabs();
-    // });
-
-    
-
-    // if (widthWindow < 1135) {
-    //     showSlidesTabs();
-    // }
+    window.addEventListener('resize', event => {
+        resizeWin(window.innerWidth);
+        showSlidesTabs();
+    });
 };
 
 export default tabsWorking;
